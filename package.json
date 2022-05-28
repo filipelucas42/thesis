@@ -1,0 +1,27 @@
+{
+  "name": "django-arctel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "sass": "^1.49.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass -w assets/sass/main.scss static/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipelucas42/django-arctel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filipelucas42/django-arctel/issues"
+  },
+  "homepage": "https://github.com/filipelucas42/django-arctel#readme"
+}

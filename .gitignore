@@ -1,0 +1,15 @@
+env
+db.sqlite3
+.idea
+**/**.pyc
+spellbook-repo/
+media
+.DS_Store
+arctel_server_files
+__pycache__/
+*.py[cod]
+node_modules
+static/css/main.scss
+!tmp/media
+!tmp/db.sqlite3
+venv

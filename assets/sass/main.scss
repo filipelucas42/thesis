@@ -1,0 +1,14 @@
+@import "./utilities/colors.scss";
+@import "./utilities/shapes.scss";
+
+@import "components/navbar";
+@import "components/index";
+@import "components/activities";
+@import "components/aboutUs";
+@import "components/news";
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}

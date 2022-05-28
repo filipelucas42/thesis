@@ -1,0 +1,201 @@
+.news-container {
+  width: 90vw;
+
+  @media screen and (max-width: 800px) {
+    width: 95vw;
+  }
+
+  &-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px !important;
+
+    @media screen and (max-width: 800px) {
+      justify-content: space-around;
+    }
+
+    .list-group-container {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px !important;
+
+      @media screen and (max-width: 800px) {
+        width: 20%;
+        margin-top: 20px !important;
+      }
+
+      .news-list-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 50px;
+
+        &-item {
+          padding: 5px 10px !important;
+          border: 1px solid $light-gray;
+          text-decoration: none;
+          color: $main-blue;
+          text-align: center;
+          cursor: pointer;
+          transition: color 0.2s ease-out;
+
+          &:hover {
+            color: $secundary-blue;
+          }
+
+          &:not(:last-child) {
+            border-bottom: none;
+          }
+
+          &:first-child {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+          &:last-child {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+          }
+        }
+
+        .link-active {
+          background-color: $main-blue;
+          border: 1px solid $main-blue;
+          color: $white;
+          transition: all 0.2s ease-out;
+
+          &:hover {
+            background-color: $secundary-blue;
+            border: 1px solid $secundary-blue;
+          }
+        }
+      }
+    }
+
+    .news-cards-container {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: 800px) {
+        width: 70%;
+      }
+
+      .news-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+
+        .news-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 1;
+          border: 1px solid $light-gray;
+          min-width: 250px;
+          padding: 10px !important;
+
+          &-title {
+            margin: 10px 0 !important;
+            text-decoration: none;
+            color: $main-blue;
+            transition: color 0.2s linear;
+            cursor: pointer;
+
+            &:hover {
+              color: $secundary-blue;
+            }
+          }
+
+          &-img {
+            width: 100%;
+          }
+
+          &-text {
+            margin-top: 10px !important;
+            margin-bottom: 5px !important;
+          }
+
+          &-date {
+            font-size: 12px;
+            font-weight: 600;
+            font-style: italic;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 10px !important;
+          }
+
+          &-btn {
+            width: 100%;
+            background-color: $main-blue;
+            text-align: center;
+            padding: 5px 0 !important;
+            color: $white;
+            border-radius: 5px;
+            margin-top: auto !important;
+            transition: background-color 0.2s linear;
+            text-decoration: none;
+
+            &:hover{
+              background-color: $secundary-blue;
+            }
+          }
+        }
+      }
+
+      .news-pagination {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 80px!important;
+
+        .news-page-item {
+          list-style: none;
+          color: $main-blue;
+          height: auto;
+          border: 1px solid $light-gray;
+          transition: all 0.2s linear;
+          padding: 10px 0 !important;
+
+          &:hover {
+            color: $secundary-blue;
+          }
+
+          &:not(:first-child) {
+            border-left: none;
+          }
+
+          &:first-child {
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+          }
+
+          &:last-child {
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+
+          .news-page-link {
+            text-decoration: none;
+            color: inherit;
+            padding: 20px 10px !important;
+            cursor: pointer;
+          }
+
+        }
+
+        .news-active {
+          background-color: $main-blue;
+          color: $white;
+          border: 1px solid $main-blue;
+          transition: all 0.2s linear;
+
+          &:hover {
+            background-color: $secundary-blue;
+            color: $white; 
+          }
+        }
+      }
+    }
+  }
+}

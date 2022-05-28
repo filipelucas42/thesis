@@ -1,0 +1,126 @@
+{% load static %}
+{% load wagtailcore_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>{% block title %}Arctel{% endblock title %}</title>
+    <meta name="robots" content="noindex" />
+    <!--<link rel="stylesheet" href="{% static 'css/main.css' %}">-->
+  
+<!--    <script defer src="{% static 'js/navbar.js' %}"></script>-->
+<!--    <script defer src="{% static 'js/activities.js' %}"></script>-->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4" >
+    <div class="container-fluid">
+        {% comment %}
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'images/arctel_logo_small.png' %}"  class="d-inline-block align-top" alt="">
+        </a>
+        {% endcomment %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'news' %}">Noticias</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Arquivo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'activities' %}">Actividades</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'publications' %}">Publicações</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sobre Nós
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'history' %}">História</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'meetings' %}">Reuniões</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'status' %}">Estatutos</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'structure' %}">Estrutura</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'activities' %}">Actividades</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'protocols' %}">Protocolos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Observatório
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'newsletter' %}">Newsletter</a></li>
+                    </ul>
+                </li>
+                    <a class="nav-link" aria-current="page" href="{% url 'formation-center' %}">Centro Formação</a>
+                </li>
+                {% for page in pages %}
+                    {% if page.get_children.live %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{page.title}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for child in page.get_children.live %}
+                            <li><a class="dropdown-item" aria-current="page" href="{% pageurl child  %}">{{child.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% else %}
+                    <a class="nav-link" aria-current="page" href="{% pageurl page %}">{{page.title}}</a>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/cms/">CMS</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Publicações
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for publication_directory in publication_directories %}
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'publication-directories' publication_directory.pk  %}">{{publication_directory.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Backoffice
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'backoffice-news' %}">Editar Notícias</a></li>
+                        <li><a class="dropdown-item" aria-current="page" href="{% url 'backoffice-formation-offer-list' %}">Centro de Formação</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="_method" value="delete">
+                        <input class="nav-link" type="submit" aria-current="page" value="Logout">
+                    </form>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</html>

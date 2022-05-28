@@ -1,0 +1,39 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% load common_tags %}
+{% block title %}
+Arctel - Editar oferta formativa
+{% endblock %}
+{% block content %}
+
+<div class="container d-flex flex-column" style="display:flex; justify-content:center;">
+    <h1>Editar - Oferta Formativa</h1>
+    <form action="{% url 'backoffice-formation-offer' formation_offer.id %}" method="post" class="form col-centered" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{'put'|method}}
+        <div class="mb-3">
+            <label for="title" class="form-label">Título:</label>
+            <input type="text" name="title" id="title" value="{{formation_offer.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Data de Abertura:</label>
+            <input type="date" name="start_date" id="start_date" value="{{formation_offer.start_date}}">
+        </div>
+        <div class="mb-3">
+            <label for="end_date" class="form-label">Date de Encerramento:</label>
+            <input type="date" name="end_date" id="end_date" value="{{formation_offer.end_date}}" >
+        </div>
+        <div class="mb-3 mt-3">
+            <label  class="form-label">Descrição:</label><br>
+            <textarea name="description" rows="3" style="width: 100%">{{formation_offer.description}}</textarea>
+        </div>
+        <div class="mx-auto mt-3">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+    </form>
+</div>
+<script>
+    document.querySelector("#start_date").value = "{{formation_offer.start_date|date:'c'}}"
+    document.querySelector("#end_date").value = "{{formation_offer.end_date|date:'c'}}"
+</script>
+{% endblock %}

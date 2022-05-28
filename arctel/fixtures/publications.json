@@ -1,0 +1,442 @@
+[
+{
+  "model": "arctel.publication",
+  "pk": 5,
+  "fields": {
+    "title": "A Governação Internet e o Posicionamento de Portugal",
+    "file": "A_Governacao_Internet_e_o_Posicionamento_de_Portugal.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 6,
+  "fields": {
+    "title": "Estudo Serviço Universal ARCTEL",
+    "file": "Estudo_Servico_Universal_ARCTEL.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 7,
+  "fields": {
+    "title": "Regulamentos de Telecomunicações Internacionais - 2012",
+    "file": "Regulamentos_de_Telecomunicacoes_Internacionais_2012.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 8,
+  "fields": {
+    "title": "Competências e responsabilidades dos reguladores no âmbito da ARCTEL",
+    "file": "Competencias_e_responsabilidades_dos_reguladores_no_ambito_da_ARCTEL.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 9,
+  "fields": {
+    "title": "Agenda Digital para a CPLP",
+    "file": "agenda_digital_para_a_cplp.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 3
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 10,
+  "fields": {
+    "title": "Governação e Regulação da Internet na América Latina ",
+    "file": "Governacao_e_Regulacao_da_Internet_na_América_Latina .pdf",
+    "image": "",
+    "directory": 8,
+    "order": 1
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 11,
+  "fields": {
+    "title": "Comércio Electrónico na CPLP",
+    "file": "comercio_eletronico_na_cplp.pdf",
+    "image": "",
+    "directory": 8,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 12,
+  "fields": {
+    "title": "Anuário das Comunicações 2010",
+    "file": "2010.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 13,
+  "fields": {
+    "title": "Anuário das Comunicações 2011",
+    "file": "2011.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 14,
+  "fields": {
+    "title": "Anuário das Comunicações 2012",
+    "file": "2012.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 15,
+  "fields": {
+    "title": "Anuário das Comunicações 2013",
+    "file": "2013.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 16,
+  "fields": {
+    "title": "Anuário das Comunicações 2014 - versão alta resolução",
+    "file": "2014_high_res.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 17,
+  "fields": {
+    "title": "Anuário das Comunicações 2014 - versão baixa resolução",
+    "file": "2014_low_res.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 18,
+  "fields": {
+    "title": "Anuário das Comunicações 2015",
+    "file": "2015.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 19,
+  "fields": {
+    "title": "Anuário das Comunicações 2016",
+    "file": "2016.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 20,
+  "fields": {
+    "title": "Anuário das Comunicações 2017",
+    "file": "2017.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 21,
+  "fields": {
+    "title": "Anuário das Comunicações 2018",
+    "file": "2018.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 22,
+  "fields": {
+    "title": "Anuário das Comunicações 2019",
+    "file": "2019.pdf",
+    "image": "",
+    "directory": 9,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 23,
+  "fields": {
+    "title": "Plano de Atividades 2009",
+    "file": "actv-09.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 24,
+  "fields": {
+    "title": "Plano de Atividades 2010-2011",
+    "file": "actv-10-11.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 25,
+  "fields": {
+    "title": "Plano de Atividades 2012-2014",
+    "file": "actv-12-14.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 26,
+  "fields": {
+    "title": "Plano de Atividades Intercalar 2013-2014",
+    "file": "inter-actv-13-14.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 27,
+  "fields": {
+    "title": "Plano de Atividades 2014-2016",
+    "file": "actv-14-16.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 28,
+  "fields": {
+    "title": "Plano de Atividades 2016-2017",
+    "file": "actv-16-17.pdf",
+    "image": "",
+    "directory": 10,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 29,
+  "fields": {
+    "title": "Relatório de Atividades 2009",
+    "file": "rel-actv-09.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 30,
+  "fields": {
+    "title": "Relatório de Atividades 2010",
+    "file": "rel-actv-10.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 31,
+  "fields": {
+    "title": "Relatório de Atividades 2011",
+    "file": "rel-actv-11.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 32,
+  "fields": {
+    "title": "Relatório de Atividades 2012",
+    "file": "rel-actv-12.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 33,
+  "fields": {
+    "title": "Relatório de Atividades 2013",
+    "file": "rel-actv-13.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 34,
+  "fields": {
+    "title": "Relatório de Atividades 2014",
+    "file": "rel-actv-14.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 35,
+  "fields": {
+    "title": "Relatório de Atividades 2015",
+    "file": "rel-actv-15.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 36,
+  "fields": {
+    "title": "Relatório de Atividades 2016",
+    "file": "rel-actv-16.pdf",
+    "image": "",
+    "directory": 11,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 37,
+  "fields": {
+    "title": "Relatório e Contas 2009",
+    "file": "rel-and-account-09.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 38,
+  "fields": {
+    "title": "Relatório e Contas 2010",
+    "file": "rel-and-account-10.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 39,
+  "fields": {
+    "title": "Relatório e Contas 2011",
+    "file": "rel-and-account-11.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 40,
+  "fields": {
+    "title": "Relatório e Contas 2012",
+    "file": "rel-and-account-12.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 2
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 41,
+  "fields": {
+    "title": "Relatório e Contas 2013",
+    "file": "rel-and-account-13.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 3
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 42,
+  "fields": {
+    "title": "Relatório e Contas 2014",
+    "file": "rel-and-account-14.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 43,
+  "fields": {
+    "title": "Relatório e Contas 2015",
+    "file": "rel-and-account-15.pdf",
+    "image": "",
+    "directory": 12,
+    "order": 0
+  }
+},
+{
+  "model": "arctel.publication",
+  "pk": 44,
+  "fields": {
+    "title": "news letter 123",
+    "file": "django-readthedocs-io-en-4.0.x.pdf",
+    "image": "dlv-advogados-logo.png",
+    "directory": 13,
+    "order": 0
+  }
+}
+]

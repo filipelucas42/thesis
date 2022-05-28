@@ -1,0 +1,71 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <img class="activities-img" src="{% static '/images/about/activities.png' %}" />
+    <div class="accordion mt-2" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button aria-controls="collapseOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapseOne"
+                        data-bs-toggle="collapse" type="button">
+                    Plano de Atividades
+                </button>
+            </h2>
+            <div aria-labelledby="headingOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample"
+                 id="collapseOne">
+                <div class="accordion-body">
+                    <div class="list-group">
+                        {% for activity_plan in activities_plans %}
+                        <a class="list-group-item list-group-item-action"
+                           href="{{MEDIA_URL}}{{activity_plan.file}}" target="_blank">{{activity_plan.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button aria-controls="collapseOne" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseTwo"
+                            data-bs-toggle="collapse" type="button">
+                        Relatório de Atividades
+                    </button>
+                </h2>
+                <div aria-labelledby="headingOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample"
+                     id="collapseTwo">
+                    <div class="accordion-body">
+                        <div class="list-group">
+                            {% for publication in activities_reports %}
+
+                            <a class="list-group-item list-group-item-action"
+                               href="{{MEDIA_URL}}{{publication.file}}" target="_blank">{{publication.title}}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button aria-controls="collapseTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseThree"
+                        data-bs-toggle="collapse" type="button">
+                    Relatórios e Contas
+                </button>
+            </h2>
+            <div aria-labelledby="headingOne" class="accordion-collapse collapse" data-bs-parent="#headingThree"
+                 id="collapseThree">
+                <div class="accordion-body">
+                    <div class="list-group">
+                        {% for publication in reports %}
+                        <a aria-current="true"
+                           class="list-group-item list-group-item-action" href="{{MEDIA_URL}}{{publication.file}}" target="_blank">
+                            {{publication.title}}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

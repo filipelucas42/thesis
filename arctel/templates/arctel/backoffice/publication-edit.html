@@ -1,0 +1,49 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% block title %}
+Arctel - Editar publicação
+{% endblock %}
+{% block content %}
+
+<div class="container d-flex flex-column" style="display:flex; justify-content:center;">
+    <h1>Editar Publicação</h1>
+    {% if publication.file %}
+        <a class="mb-2" href="{{MEDIA_URL}}/{{publication.file}}" target="_blank">{{publication.file}}</a>
+    {% endif %}
+    <form action="{% url 'backoffice-publication' %}" method="post" class="form col-centered" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if publication %}
+        <input type="hidden" name="publication_id" value="{{publication.pk}}">
+        {% endif %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Título:</label>
+            <input type="text" name="title" id="title" value="{{publication.title}}">
+        </div>
+        <label>Directório:</label>
+        <select class="form-select" name="directory_id">
+            {% for publication_directory in publication_directories %}
+                {% if publication_directory.pk == publication.directory.pk %}
+                <option selected value="{{publication_directory.pk}}">{{publication_directory.name}}</option>
+                {% elif publication_directory.pk == directory.pk %}
+                <option selected value="{{publication_directory.pk}}">{{publication_directory.name}}</option>
+                {% else %}
+                <option value="{{publication_directory.pk}}">{{publication_directory.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <div class="mb-3 mt-3">
+            <label for="formFile" class="form-label">Ficheiro:</label>
+            <input class="form-control" type="file" id="formFile" name="file">
+        </div>
+        {% if directory.identifier == 'newsletter' %}
+        <div class="mb-3 mt-3">
+            <label for="image" class="form-label">Imagem:</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+        {% endif %}
+        <div class="mx-auto mt-3">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+    </form>
+</div>
+{% endblock %}

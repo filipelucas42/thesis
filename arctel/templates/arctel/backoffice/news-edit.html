@@ -1,0 +1,71 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% block title %}
+Arctel - Editar notícia
+{% endblock %}
+{% block content %}
+<script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+<script>
+    tinymce.init({
+        selector: '#text-editor',
+        branding: false,
+        plugins: ['image', 'link'],
+     });
+</script>
+
+<div class="container d-flex flex-column" style="display:flex; justify-content:center;">
+    {% if new.image %}
+    <img src="{{MEDIA_URL}}/{{new.image}}" style="object-fit: contain;max-height: 50vh" />
+    {% else %}
+    <img src="{% static 'images/arctel.jpg' %}" style="object-fit: contain;max-height: 50vh" />
+    {% endif %}
+    <form action="{% url 'backoffice-news-by-id' new.pk %}" method="post" class="form col-centered" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="date" class="form-label">Data:</label>
+            <input type="date" name="date" id="date" value="{{new.date}}">
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Título:</label>
+            <input type="text" name="title" id="title" value="{{new.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Descrição:</label>
+            <input type="text" name="description" id="descrição" value="{{new.description}}">
+        </div>
+        <div class="mb-3">
+            <textarea name="text" id="text-editor" cols="30" rows="25">{{new.text}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Escolher imagem</label>
+            <input class="form-control" type="file" id="formFile" name="image">
+        </div>
+        <div class="mx-auto">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+    </form>
+    <a href="{% url 'news-by-id' new.pk %}" class="btn btn-primary align-self-start mt-3">Ver Notícia</a>
+</div>
+<script>
+    document.querySelector("#date").value = "{{new.date|date:'c'}}"
+</script>
+<!-- <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+
+<div id="toolbar">
+  <button class="ql-bold">Bold</button>
+  <button class="ql-italic">Italic</button>
+</div>
+
+<div id="editor">
+  <p>Hello World!</p>
+</div>
+
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+<script>
+  var editor = new Quill('#editor', {
+    modules: { toolbar: '#toolbar' },
+    theme: 'snow'
+  });
+</script> -->
+{% endblock %}

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "publications-sector",
+      "name": "Publicações do Sector"
+    }
+  },
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "publications-directory",
+      "name": "Anuário das Comunicações"
+    }
+  },
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "activities-plan",
+      "name": "Plano de Atividades"
+    }
+  },
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "activity-reports",
+      "name": "Relatório de Atividades"
+    }
+  },
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "reports-and-accounting",
+      "name": "Relatórios e Contas"
+    }
+  },
+  {
+    "model": "arctel.Directory",
+    "fields": {
+      "identifier": "newsletter",
+      "name": "Newsletter"
+    }
+  }
+]

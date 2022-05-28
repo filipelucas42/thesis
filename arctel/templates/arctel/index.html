@@ -1,0 +1,38 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="text-container">
+        <hr>
+        <p class="index-paragraph">
+            A ARCTEL-CPLP é uma Associação de direito privado que facilita e potencia a partilha de informação e conhecimento entre os vários reguladores, com o objetivo de contribuir para o desenvolvimento do mercado e do sector das comunicações.
+        </p>
+
+        <p class="index-paragraph">
+            A ARCTEL está disponível para colaboração em projetos no âmbito da formação, cooperação e investigação com entidades oriundas do espaço CPLP e fora da CPLP.
+            Para mais informação clique aqui.
+        </p>
+
+        <hr>
+        <div class="row gx-2">
+        {% for new in news %}
+            <div class="card col-3" >
+                {% if new.image %}
+                <img src="{{MEDIA_URL}}/{{new.image}}" class="card-img-top" alt="...">
+                {% else %}
+                <img src="{% static 'images/arctel.jpg' %}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{new.title}}</h5>
+                    <p class="card-text">{{new.description|truncatewords:"15" }}</p>
+                    <a class="btn btn-primary mt-auto" href="{% url 'news-by-id' new.pk %}">Ler mais...</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+  
+{% endblock %}

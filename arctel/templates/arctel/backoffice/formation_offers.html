@@ -1,0 +1,58 @@
+{% extends 'arctel/layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Ações de Formação</h1>
+    <form action="{% url 'formation-offer-create' %}" method="GET">
+        <input class="btn btn-primary" type="submit" value="Criar oferta formativa">
+    </form>
+    <table class="table">
+        <thead>
+          <trnews.html>
+              <th scope="col">Date de Abertura</th>
+              <th scope="col">Data de Encerrameno</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Ações</th>
+          </trnews.html>
+        </thead>
+        <tbody>
+            {% for formation_offer in formation_offers %}
+            <tr>
+                <td>{{formation_offer.start_date|date:"c"}}</td>
+                <td>{{formation_offer.end_date|date:"c"}}</td>
+                <td>{{formation_offer.title}}</td>
+                <td class="d-flex">
+                    <a class="btn btn-primary" href="{% url 'backoffice-formation-offer' formation_offer.id %}">Editar</a>
+                    <form action="" class="ms-1"method="post">{%csrf_token%}<input class="btn btn-danger" type="submit" value="Apagar"/></form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination">
+            {% if formation_offers.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'backoffice-news' %}?page={{formation_offers.number|add:'-1'}}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for page_number in formation_offers.paginator.page_range %}
+                {% if page_number == formation_offers.number %}
+                    <li class="page-item active"><a class="page-link" href="{% url 'backoffice-news' %}?page={{page_number}}">{{page_number}}</a></li>
+                {% elif page_number > formation_offers.number|add:"-3" and page_number < news.number|add:"3" %}
+                    <li class="page-item"><a class="page-link" href="{% url 'backoffice-news' %}?page={{page_number}}">{{page_number}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if formation_offers.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'backoffice-news' %}?page={{formation_offers.number|add:'1'}}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+      </nav>
+</div>
+{% endblock %}

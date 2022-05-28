@@ -1,0 +1,55 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% block title %}
+Arctel - Publicações
+{% endblock %}
+{% block content %}
+<div id="content" class="container">
+    <img class="img-fluid mb-2" src="{% static '/images/publications.jpg' %}" >
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button aria-controls="collapseOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapseOne"
+                        data-bs-toggle="collapse" type="button">
+                    Publicações do Setor
+                </button>
+            </h2>
+            <div aria-labelledby="headingOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample"
+                 id="collapseOne">
+                <div class="accordion-body">
+                    <div class="list-group">
+                        {% for publication in sector_publications %}
+
+                        <a aria-current="true"
+                           class="list-group-item list-group-item-action" href="{{MEDIA_URL}}{{publication.file}}" target="_blank">
+                            {{publication.title}}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button aria-controls="collapseTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseTwo"
+                        data-bs-toggle="collapse" type="button">
+                    Anuário das Comunicações
+                </button>
+            </h2>
+            <div aria-labelledby="headingOne" class="accordion-collapse collapse" data-bs-parent="#headingTwo"
+                 id="collapseTwo">
+                <div class="accordion-body">
+                    <div class="list-group">
+                        {% for publication in communications_anuary %}
+                        <a aria-current="true"
+                           class="list-group-item list-group-item-action" href="{{MEDIA_URL}}{{publication.file}}" target="_blank">
+                            {{publication.title}}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

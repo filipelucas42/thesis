@@ -1,0 +1,61 @@
+{% extends 'arctel/layout/base.html' %}
+{% load common_tags %}
+{% block content %}
+<div class="container">
+    <h1>Notícias</h1>
+    <form action="{% url 'backoffice-news' %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Criar Notícia">
+    </form>
+    <table class="table">
+        <thead>
+          <trnews.html>
+            <th scope="col">Data</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Ações</th>
+          </trnews.html>
+        </thead>
+        <tbody>
+            {% for new in news %} 
+            <tr>
+                <td>{{new.date|date:"c"}}</td>
+                <td>{{new.title}}</td>
+                <td class="d-flex">
+                    <a class="btn btn-primary" href="{% url 'backoffice-news-by-id' new.pk %}">Editar</a>
+                    <form action="{% url 'backoffice-news-by-id' new.id %}" class="ms-1"method="post" onsubmit="return confirm('Apagar noticia: {{new.title}}?')">
+                        {% csrf_token %}
+                        {{'delete'|method}}
+                        <input class="btn btn-danger" type="submit" value="Apagar"/>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination">
+            {% if news.has_previous %} 
+            <li class="page-item">
+                <a class="page-link" href="{% url 'backoffice-news' %}?page={{news.number|add:'-1'}}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for page_number in news.paginator.page_range %}
+                {% if page_number == news.number %} 
+                    <li class="page-item active"><a class="page-link" href="{% url 'backoffice-news' %}?page={{page_number}}">{{page_number}}</a></li>
+                {% elif page_number > news.number|add:"-3" and page_number < news.number|add:"3" %}
+                    <li class="page-item"><a class="page-link" href="{% url 'backoffice-news' %}?page={{page_number}}">{{page_number}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if news.has_next %} 
+            <li class="page-item">
+                <a class="page-link" href="{% url 'backoffice-news' %}?page={{news.number|add:'1'}}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+      </nav>
+</div>
+{% endblock %}

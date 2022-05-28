@@ -1,0 +1,37 @@
+{% extends 'arctel/layout/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+Arctel - Publicações
+{% endblock %}
+{% block content %}
+{% language 'pt' %}
+<div id="content" class="container">
+    <img class="img-fluid mb-2" src="{% static '/images/cfa.jpeg' %}" >
+    <div class="mt-2">
+        <p>
+            O Centro de Formação ARCTEL dispõe, em colaboração com os seus parceiros, de uma Oferta Conjunta de
+            Formação diversificada, não só em termos de conteúdos como de destinatários, procurando assim uma maior
+            abrangência e transversalidade nas suas ações.
+            As ações disponíveis encontram-se listadas abaixo. </p>
+
+            <p>Informações adicionais e outras questões relacionadas com a Oferta Formativa do CFA podem ser
+        solicitadas através do telefone + 351 21 721 23 01/05 ou enviando email para secretariado@arctel-cplp.org.</p>
+        </p>
+        <ul class="list-group">
+            {% for formation_offer in formation_offers %}
+            <li class="mb-4 list-group-item">
+                <h3>{{formation_offer.title}}</h3>
+                <b>Inscrições abertas até {{formation_offer.end_date}}</b>
+                <br>
+                <br>
+                <b>Descrição:</b>
+                <p>{{formation_offer.description}}</p>
+                <a href="#">Inscrever</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endlanguage %}
+{% endblock %}

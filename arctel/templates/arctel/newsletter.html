@@ -1,0 +1,29 @@
+{% extends 'arctel/layout/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+    <h1>Objetivos e Metodologia</h1>
+    <p>As newsletters da ARCTEL que constam desta área pretendem, de uma forma sucinta e clara, abordar questões da atualidade relacionadas com o desenvolvimento do sector das comunicações eletrónicas e serviços postais nos países da CPLP, divulgando notícias, artigos e conteúdos relevantes para todos os interessados.</p>
+    <div class="row">
+        {% for publication in publications %}
+        <div class="card col-6 mb-4 ms-2 me-2" style="width: 18rem;">
+            <a href="{% url 'news-by-id' publication.pk %}" class="mt-2"><h5 class="card-title">{{publication.title}}</h5></a>
+            {% if publication.image %}
+            <img src="{{MEDIA_URL}}/{{publication.image}}" style="object-fit: contain;max-height: 50vh" />
+            {% else %}
+            <img src="{% static 'images/arctel.jpg' %}" style="object-fit: contain;max-height: 50vh" />
+            {% endif %}
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">{{new.description|truncatewords:"15" }}</p>
+                <p class="card-text mt-auto">{{new.date|date:'d'}} {{new.date|date:'M'}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+  
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'arctel/layout/base.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="col-12">
+        <h2>{{new.title}}</h2>
+        <p>Data: {{new.date|date:"c"}}</p>
+        <div>
+        {% autoescape off %}
+            {{new.text}}
+        {% endautoescape %}
+
+        </div>
+    </div>
+    <div class="">
+        <a class="btn btn-primary mt-4" href="{{request.META.HTTP_REFERER}}">Voltar</a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-primary mt-4" href="{% url 'backoffice-news-by-id' new.pk %}">Editar</a>
+        {% endif %}
+    </div>
+</div>
+  
+{% endblock %}

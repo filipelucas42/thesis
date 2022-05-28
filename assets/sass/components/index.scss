@@ -1,0 +1,133 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px !important;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 20px !important;
+  }
+}
+
+.hero-container {
+  max-width: 1000px;
+  margin: 0px 20px 20px !important;
+
+  @media screen and (max-width: 900px) {
+    margin: 0px 15px 15px !important;
+  }
+}
+
+.hero-sub-container {
+  display: flex;
+  max-width: 900px;
+  background: linear-gradient($main-blue, $secundary-blue);
+  border-radius: 5px;
+  padding: 20px !important;
+  box-shadow: $box-shadow;
+
+  @media screen and (max-width: 900px) {
+    max-width: 90vw;
+    flex-direction: column;
+  }
+}
+
+.left-column {
+  max-width: 40%;
+
+  @media screen and (max-width: 900px) {
+    max-width: 100%;
+  }
+}
+
+.right-column {
+  margin-left: auto !important;
+}
+
+.hero-title {
+  color: $white;
+  font-size: 1.5rem;
+  margin-top: 10px !important;
+}
+
+.hero-text {
+  margin-top: 10px !important;
+  color: $white;
+  font-size: 1rem;
+}
+
+.hero-tag {
+  color: yellow;
+
+  &:hover {
+    color: yellow;
+  }
+}
+
+.hero-img {
+  width: 404px;
+  margin-left: auto !important;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    margin-top: 15px !important;
+  }
+}
+
+.text-container {
+  max-width: 900px !important;
+  margin: 20px !important;
+
+  .index-paragraph {
+    font-size: 1rem;
+    margin-top: 1.5rem !important;
+    font-weight: normal;
+    color: $gray;
+    
+    &:last-of-type {
+      margin-bottom: 1.6rem !important; 
+    }
+  }
+}
+
+
+.images-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem !important;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  &-column {
+    flex-direction: column;
+    flex: 1;
+    margin-top: 0.6rem !important;
+    min-width: 150px;
+    max-width: 250px;
+    margin-bottom: 0.6rem !important;
+
+    img {
+      width: 100%;
+      box-shadow: $box-shadow-small;
+      border: 5px solid $light-gray;
+    }
+    
+    h6 {
+      margin-top: 1rem !important;
+      font-size: 1.1rem;
+    }
+    
+    p {
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+      font-size: 1rem;
+    }
+    
+    .read-more {
+      font-size: 1rem;
+    }
+  }
+}

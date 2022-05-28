@@ -1,0 +1,19 @@
+{% extends 'arctel/layout/base.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="col-12">
+        <h2>{{new.title}}</h2>
+        <div>
+        {% autoescape off %}
+            {{new.body}}
+        {% endautoescape %}
+
+        </div>
+    </div>
+</div>
+  
+{% endblock %}

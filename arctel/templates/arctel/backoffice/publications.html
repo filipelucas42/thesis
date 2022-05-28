@@ -1,0 +1,68 @@
+{% extends 'arctel/layout/base.html' %}
+{% load common_tags %}
+
+{% block content %}
+<div class="container">
+    <h1>Publicações - {{directory.name}}</h1>
+    <form action="{% url 'backoffice-publication' %}" method="get" target="_blank">
+        <input type="hidden" name="directory" value="{{directory.pk}}">
+        <input class="btn btn-primary" type="submit" value="Criar Publicação">
+    </form>
+    <table class="table">
+        <thead>
+          <trnews.html>
+              <th scope="col">Titulo</th>
+              <th scope="col">Ações</th>
+              <th scope="col">Ordem</th>
+          </trnews.html>
+        </thead>
+        <tbody>
+            {% for publication in publications %}
+            <tr>
+                <td>{{publication.title}}</td>
+                <td class="d-flex">
+                    <a class="btn btn-primary" href="{% url 'backoffice-publication-by-id' publication.pk %}">Editar</a>
+                    <form action="{% url 'backoffice-publication-by-id' publication.pk %}" class="ms-1"method="post" onsubmit="return confirm('Apagar publicação {{publication.title}}?')">
+                        {%csrf_token%}
+                        {{'delete'|method}}
+                        <input class="btn btn-danger" type="submit" value="Apagar"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'backoffice-publication-order' publication.pk %}" class="ms-1"method="post">
+                        {%csrf_token%}
+                        <input type="number" name="order" value="{{publication.order}}">
+                        <input class="btn btn-primary" type="submit" value="Atualizar ordem"/>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination">
+            {% if publications.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'publication-directories' directory.pk %}?page={{publications.number|add:'-1'}}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for page_number in publications.paginator.page_range %}
+                {% if page_number == publication.number %}
+                    <li class="page-item active"><a class="page-link" href="{% url 'publication-directories' directory.pk %}?page={{page_number}}">{{page_number}}</a></li>
+                {% elif page_number > publication.number|add:"-3" and page_number < publication.number|add:"3" %}
+                    <li class="page-item"><a class="page-link" href="{% url 'publication-directories' directory.pk %}?page={{page_number}}">{{page_number}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if publications.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'publication-directories' directory.pk %}?page={{publications.number|add:'1'}}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+      </nav>
+</div>
+{% endblock %}
