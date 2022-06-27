@@ -125,4 +125,14 @@ urlpatterns = [
         views.cms_news_by_id,
         name="cms-new-by-id",
     ),
+    path(
+        "observatório/taxa-penetracao-movel/data-points/",
+        views.data_points,
+        name="mobile-penetration-rate-data-points",
+    ),
+    path(
+        "observatório/taxa-penetracao-movel/",
+        TemplateView.as_view(template_name='arctel/data_points.html'),
+        name="mobile-penetration-rate",
+    ),
 ]

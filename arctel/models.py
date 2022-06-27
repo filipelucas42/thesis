@@ -45,6 +45,31 @@ class FormationSubmission(models.Model):
     date = models.DateField(default=now)
 
 
+class Country(models.Model):
+    label = models.CharField(max_length=255, blank=False)
+    code = models.CharField(max_length=255, blank=False)
+
+    def __str__(self):
+        return self.label
+
+
+class DataPoint(models.Model):
+    MOBILE = "mobile"
+    INTERNET = "internet"
+
+    GRAPH_CHOICES = (
+        (MOBILE, "mobile penetration rate"),
+        (INTERNET, "internet access rate"),
+    )
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    year = models.IntegerField()
+    value = models.IntegerField()
+    graph = models.CharField(max_length=255, blank=False, choices=GRAPH_CHOICES, default=MOBILE)
+
+    class Meta:
+        unique_together = ('country', 'year', 'graph')
+
+
 class Page(WagtailPage):
     template = "arctel/wagtail.html"
     body = StreamField([

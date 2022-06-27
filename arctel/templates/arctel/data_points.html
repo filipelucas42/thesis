@@ -1,0 +1,54 @@
+{% extends 'arctel/layout/base.html' %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+<div class="container">
+    <h1>Taxa de penetração do serviço telefónico móvel</h1>
+    <p>Refere-se ao número de cartões SIM/USIM ativos por 100 habitantes.</p>
+    <div id="chart"></div>
+</div>
+
+<script>
+    fetch('{% url "mobile-penetration-rate-data-points" %}')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data)
+            let years = []
+            let series_aux = {}
+            for(let point of data){
+                years.push(point["year"])
+                if(series_aux[point["country"]] === undefined){
+                    series_aux[point["country"]] = []
+                }
+                series_aux[point["country"]].push(point["value"])
+            }
+            years = [...new Set(years)].sort()
+            console.log(series_aux)
+            console.log(years)
+            let series = []
+            for(let key in series_aux){
+                series.push({'name': key, data: series_aux[key]})
+            }
+            console.log(series)
+            var options = {
+                chart: {
+                    height: 350,
+                    type: "line",
+                    stacked: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: series,
+                xaxis: {
+                    categories: years
+                },
+            };
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render()
+        });
+</script>
+{% endblock %}

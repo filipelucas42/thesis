@@ -25,8 +25,18 @@ class WagtailPage(admin.ModelAdmin):
     list_display = ("id", )
 
 
+class Country(admin.ModelAdmin):
+    list_display = ("id",'code' )
+
+
+class DataPoint(admin.ModelAdmin):
+    list_display = ("id", 'year', 'value', 'country')
+
+
 admin.site.register(models.New, NewAdmin)
 admin.site.register(models.Directory, DirectoryAdmin)
 admin.site.register(models.Publication, PublicationAdmin)
 admin.site.register(models.FormationOffer, FormationOffer)
 admin.site.register(models.Page, WagtailPage)
+admin.site.register(models.Country, Country)
+admin.site.register(models.DataPoint, DataPoint)

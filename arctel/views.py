@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 import arctel.models as models
+from django.http import JsonResponse
 
 
 def index(request):
@@ -403,8 +404,17 @@ def cms_news(req):
 
     return render(req, "arctel/cms-news.html", context=context)
 
+
 def cms_news_by_id(req, id):
     new = models.BlogPage.objects.get(pk=id)
     context = {}
     context["new"] = new
     return render(req, "arctel/cms-news.html", context=context)
+
+
+def data_points(req):
+    data = models.DataPoint.objects.filter(graph=models.DataPoint.MOBILE).order_by('year').all()
+    response = []
+    for data_point in data:
+        response.append({'value': data_point.value, 'year': data_point.year, 'country': data_point.country.label})
+    return JsonResponse(response, safe=False)
